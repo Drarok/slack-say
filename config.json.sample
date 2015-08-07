@@ -1,0 +1,5 @@
+{
+  "url": "https://YOUR-COMPANY.slack.com/services/hooks/slackbot",
+  "token": "YOUR-SLACKBOT-TOKEN",
+  "defaultChannel": "#general"
+}
