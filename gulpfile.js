@@ -6,7 +6,7 @@ var jshint = require('gulp-jshint');
 
 var source = [
   'gulpfile.js',
-  'slackSay',
+  'slack-say',
   'lib/**/*.js',
   'spec/**/*.js'
 ];

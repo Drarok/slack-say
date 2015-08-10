@@ -18,7 +18,7 @@ realPath(__dirname + '/../config.json')
 
     if (args.length !== 1 && args.length !== 2) {
       console.log('Usage:');
-      console.log('slackSay <message> [channel]');
+      console.log('slack-say <message> [channel]');
       process.exit(1);
     }
 
