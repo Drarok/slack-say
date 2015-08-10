@@ -13,9 +13,9 @@ You'll need to create config.json (there's a sample included) in order to set yo
 Then:
 
 ```bash
-slackSay 'Hello, World!' '#general'
+slack-say 'Hello, World!' '#general'
 ```
 
 ```bash
-slackSay 'Hello, World!' '@colleague'
+slack-say 'Hello, World!' '@colleague'
 ```
