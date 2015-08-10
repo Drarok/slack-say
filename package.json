@@ -2,12 +2,6 @@
   "name": "slack-say",
   "version": "0.1.0",
   "description": "Small script to control talking as Slackbot",
-  "scripts": {
-    "test": "gulp"
-  },
-  "bin": {
-    "slackSay": "./bin/slackSay"
-  },
   "author": "Mat Gadd <source@catchall.drarok.com>",
   "license": "MIT",
   "dependencies": {
@@ -19,6 +13,12 @@
     "gulp-jasmine": "^2.0.1",
     "gulp-jscs": "^2.0.0",
     "gulp-jshint": "^1.11.2"
+  },
+  "bin": {
+    "slackSay": "./bin/slackSay"
+  },
+  "scripts": {
+    "test": "node_modules/.bin/gulp"
   },
   "repository": {
     "type": "git",
