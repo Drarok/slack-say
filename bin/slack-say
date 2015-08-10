@@ -5,33 +5,27 @@ var Promise = require('bluebird');
 
 var SlackBot = require('../lib/slack-bot');
 
-var configFile = new Promise(function (resolve, reject) {
-  fs.readFile(__dirname + '/../config.json', function (err, data) {
-    if (err) {
-      return reject(err);
+var realPath = Promise.promisify(fs.realpath);
+var readFile = Promise.promisify(fs.readFile);
+
+realPath(__dirname + '/../config.json')
+  .then(function (pathname) {
+    return readFile(pathname);
+  }).then(function (json) {
+    return new SlackBot(JSON.parse(json));
+  }).then(function (bot) {
+    var args = process.argv.slice(2);
+
+    if (args.length !== 1 && args.length !== 2) {
+      console.log('Usage:');
+      console.log('slackSay <message> [channel]');
+      process.exit(1);
     }
 
-    resolve(data);
+    var message = args[0];
+    var channel = args[1];
+
+    return bot.say(message, channel);
+  }).then(function (res) {
+    console.log(res);
   });
-}).catch(function (err) {
-  console.error(err);
-});
-
-configFile.then(function (json) {
-  return new SlackBot(JSON.parse(json));
-}).then(function (bot) {
-  var args = process.argv.slice(2);
-
-  if (args.length !== 1 && args.length !== 2) {
-    console.log('Usage:');
-    console.log('slackSay <message> [channel]');
-    process.exit(1);
-  }
-
-  var message = args[0];
-  var channel = args[1];
-
-  return bot.say(message, channel);
-}).then(function (res) {
-  console.log(res);
-});
