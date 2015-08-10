@@ -1,7 +1,7 @@
 {
   "name": "slack-say",
   "version": "1.0.0",
-  "description": "",
+  "description": "Small script to control talking as Slackbot",
   "scripts": {
     "test": "gulp"
   },
