@@ -15,3 +15,7 @@ Then:
 ```bash
 slackSay 'Hello, World!' '#general'
 ```
+
+```bash
+slackSay 'Hello, World!' '@colleague'
+```
