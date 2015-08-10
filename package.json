@@ -19,5 +19,9 @@
     "gulp-jasmine": "^2.0.1",
     "gulp-jscs": "^2.0.0",
     "gulp-jshint": "^1.11.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Drarok/slack-say.git"
   }
 }
