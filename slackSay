@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 var fs = require('fs');
-var util = require('util');
 
 var Promise = require('bluebird');
-var request = require('request-promise');
+
+var SlackBot = require('./lib/slack-bot');
 
 var configFile = new Promise(function (resolve, reject) {
   fs.readFile(__dirname + '/config.json', function (err, data) {
@@ -11,33 +11,27 @@ var configFile = new Promise(function (resolve, reject) {
       return reject(err);
     }
 
-    resolve (data);
+    resolve(data);
   });
 }).catch(function (err) {
   console.error(err);
 });
 
 configFile.then(function (json) {
-  var config = JSON.parse(json);
-
+  return new SlackBot(JSON.parse(json));
+}).then(function (bot) {
   var args = process.argv.slice(2);
 
   if (args.length !== 1 && args.length !== 2) {
-      console.log('Usage:');
-      console.log('slackSay <message> [channel]');
-      process.exit(1);
+    console.log('Usage:');
+    console.log('slackSay <message> [channel]');
+    process.exit(1);
   }
 
   var message = args[0];
-  var channel = encodeURIComponent(args[1] || config.defaultChannel);
+  var channel = args[1];
 
-  var options = {
-    method: 'POST',
-    uri: util.format('%s?token=%s&channel=%s', config.url, config.token, channel),
-    body: message
-  };
-
-  return request(options);
+  return bot.say(message, channel);
 }).then(function (res) {
   console.log(res);
 });
