@@ -2,12 +2,14 @@
   "name": "slack-say",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "gulp"
   },
-  "author": "",
-  "license": "ISC",
+  "bin": {
+    "slackSay": "./bin/slackSay"
+  },
+  "author": "Mat Gadd <source@catchall.drarok.com>",
+  "license": "MIT",
   "dependencies": {
     "bluebird": "^2.9.34",
     "request-promise": "^0.4.3"
