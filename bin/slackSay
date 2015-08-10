@@ -3,10 +3,10 @@ var fs = require('fs');
 
 var Promise = require('bluebird');
 
-var SlackBot = require('./lib/slack-bot');
+var SlackBot = require('../lib/slack-bot');
 
 var configFile = new Promise(function (resolve, reject) {
-  fs.readFile(__dirname + '/config.json', function (err, data) {
+  fs.readFile(__dirname + '/../config.json', function (err, data) {
     if (err) {
       return reject(err);
     }
