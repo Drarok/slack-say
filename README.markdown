@@ -1,4 +1,4 @@
-# slack-say
+# slack-say [![Build Status](https://travis-ci.org/Drarok/slack-say.svg?branch=develop)](https://travis-ci.org/Drarok/slack-say)
 
 This is a small library/script to control talking as Slackbot.
 
