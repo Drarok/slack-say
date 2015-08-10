@@ -11,5 +11,11 @@
   "dependencies": {
     "bluebird": "^2.9.34",
     "request-promise": "^0.4.3"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-jasmine": "^2.0.1",
+    "gulp-jscs": "^2.0.0",
+    "gulp-jshint": "^1.11.2"
   }
 }
